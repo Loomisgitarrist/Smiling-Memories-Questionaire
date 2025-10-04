@@ -1,0 +1,305 @@
+/* Navigation styles to match account.html */
+header {
+  background-color: rgba(18, 18, 18, 0.95);
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid #ba4df5; /* Keep border */
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Add padding to body to prevent content from hiding under fixed header */
+body {
+  padding-top: 120px;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Class is no longer needed since all headers are fixed */
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.logo {
+  color: #ba4df5;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+nav ul li a i {
+  color: #ba4df5;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(103, 58, 183, 0.2);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 50px;
+  align-items: center;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+/* For larger screens, position all auth buttons at top right on same row */
+@media (min-width: 768px) {
+  .auth-buttons {
+    width: auto;
+    position: absolute;
+    top: 10px; /* Moved lower from top */
+    right: 15px; /* Make room for mobile menu button */
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+
+  #login-btn, #signup-btn, #account-btn, #logout-btn {
+    position: static; /* Ensure buttons are all in normal flow */
+    display: inline-flex;
+    margin-top: 0;
+  }
+}
+
+.auth-btn {
+  background-color: #ba4df5;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.auth-btn:hover {
+  background-color: #a447d7;
+}
+
+.login-btn {
+  background-color: transparent;
+  border: 1px solid #ba4df5;
+}
+
+.login-btn:hover {
+  background-color: rgba(103, 58, 183, 0.1);
+}
+
+
+nav ul li {
+  list-style: none; /* from original */
+}
+
+.nav-links a::after { /* from original */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #ba4df5;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after { /* from original */
+  width: 80%;
+}
+
+/* Special Styles for Account Link */
+.account-link { /* from original */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.crown-icon { /* from original */
+  color: #FFD700;
+}
+
+/* Allow horizontal scrolling for navigation */
+header {
+  overflow-x: visible;
+}
+
+nav {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #ba4df5 #1a1a1a;
+}
+
+nav::-webkit-scrollbar {
+  height: 6px;
+}
+
+nav::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+nav::-webkit-scrollbar-thumb {
+  background-color: #ba4df5;
+  border-radius: 3px;
+}
+
+nav ul {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-width: max-content;
+}
+
+/* Fix for account and logout buttons */
+#account-btn, #logout-btn {
+  position: relative;
+  z-index: 101;
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  header {
+    padding: 5px;
+  }
+
+  body {
+    padding-top: 130px;
+  }
+
+  .nav-top {
+    width: 100%;
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .auth-buttons {
+    display: none;
+    width: 100%;
+    position: static;
+  }
+
+  .auth-buttons.mobile-active {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+  }
+
+  /* All buttons should be in normal flow on mobile */
+  #account-btn, #logout-btn, #login-btn, #signup-btn {
+    position: static;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    z-index: 101;
+    cursor: pointer;
+  }
+}
+
+/* Override createLora.html specific styles */
+.text-center header {
+  padding: 5px;
+  box-shadow: none;
+  border-bottom: none;
+  background-color: transparent;
+}
+
+.text-center nav {
+  justify-content: center;
+}
+
+.text-center .auth-buttons {
+  margin-top: 10px;
+}
+
+.text-center .mobile-menu-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* Navigation styles complete */

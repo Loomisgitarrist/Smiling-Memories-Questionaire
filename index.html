@@ -1,9 +1,22 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smiling Memories - Ihr Personalisiertes Geschenk</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smiling Memory Questionaire</title>
+
+        <!-- PWA Meta Tags -->
+        <link rel="manifest" href="./manifest.json">
+        <meta name="theme-color" content="#4CAF50">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Smiling Memory Questionaire">
+        <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* --- General & Body Styles --- */
         :root {
@@ -22,9 +35,11 @@
             padding: 20px;
             background-color: var(--background-color);
             color: var(--text-color);
+            
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             min-height: 100vh;
         }
 
@@ -39,15 +54,18 @@
         }
         
         header {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: 800;
-            color: var(--primary-color);
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 50%, #6c3483 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* --- Responsive YouTube Video --- */
@@ -69,19 +87,24 @@
 
         /* --- Content Styling --- */
         .content {
-            padding: 25px;
+            padding: 20px;
         }
 
         .content h2 {
-            font-size: 1.8em;
+            font-size: 1.5em;
             margin-top: 0;
             font-weight: 700;
         }
 
-        .content p, .content ul {
+        .content h3 {
             font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            margin: 10px 0 5px 0;
+        }
+
+        .content p, .content ul {
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
         
         .features-list {
@@ -92,7 +115,7 @@
         .features-list li {
             padding-left: 25px;
             position: relative;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .features-list li::before {
@@ -105,10 +128,9 @@
 
         /* --- Call-to-Action Button --- */
         .cta-button {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(45deg, var(--primary-color), #FF8E53);
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 50%, #6c3483 100%);
             color: white;
             text-align: center;
             text-decoration: none;
@@ -118,12 +140,45 @@
             border: none;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 8px 20px rgba(155, 89, 182, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
         }
         
         .cta-button:hover, .cta-button:focus {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+            box-shadow: 0 12px 30px rgba(155, 89, 182, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- Fullscreen Link --- */
+        .fullscreen-link {
+            display: block;
+            text-align: center;
+            padding: 8px;
+            color: var(--secondary-color);
+            font-size: 0.85em;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+
+        .fullscreen-link:hover {
+            color: var(--primary-color);
         }
 
     </style>
@@ -135,8 +190,9 @@
             <h1>Smiling Memories</h1>
         </header>
         
-        <div class="video-preview">
+        <div class="video-preview" id="videoContainer">
             <iframe 
+                id="videoFrame"
                 src="https://www.youtube.com/embed/RmOtsbG0VsY" 
                 title="YouTube video player" 
                 frameborder="0" 
@@ -144,6 +200,7 @@
                 allowfullscreen>
             </iframe>
         </div>
+        <span class="fullscreen-link" onclick="openFullscreen()">Vergrößern</span>
         
         <div class="content">
             <h2>Verschenk ein einzigartiges Erlebnis: 🎁🎶</h2>
@@ -158,14 +215,29 @@
             </ul>
 
             <!-- === UPDATED LINK HERE === -->
-            <a href="https://ai-avatar-questionnaire.replit.app/Questionnaire.html" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="cta-button">
-                Interesse geweckt? Melde dich bei uns! 📹🎤
-            </a>
+            <div style="text-align: center;">
+                <a href="https://ai-avatar-questionnaire.replit.app/Questionnaire.html" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="cta-button">
+                    Interesse geweckt? Melde dich bei uns! 📹🎤
+                </a>
+            </div>
         </div>
     </div>
+
+    <script>
+        function openFullscreen() {
+            const videoContainer = document.getElementById('videoContainer');
+            if (videoContainer.requestFullscreen) {
+                videoContainer.requestFullscreen();
+            } else if (videoContainer.webkitRequestFullscreen) {
+                videoContainer.webkitRequestFullscreen();
+            } else if (videoContainer.msRequestFullscreen) {
+                videoContainer.msRequestFullscreen();
+            }
+        }
+    </script>
 
 </body>
 </html>

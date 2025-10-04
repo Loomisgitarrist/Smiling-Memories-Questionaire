@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - AI Avatar Questionnaire</title>
+
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AI Avatar">
+    <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <section class="applications">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="application-card" style="text-align:center;">
+                <p class="card-description">We'd love to hear from you. Reach us directly:</p>
+                <p style="margin: 0 0 6px 0; font-weight: 600;">Contact: Loomis Green</p>
+                <div class="features" style="margin-top:10px;">
+                    <div class="feature" style="justify-content:center;">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+491786877798" style="color:#333; text-decoration:none; font-weight:600;">+49 178 687 7798</a>
+                    </div>
+                    <div class="feature" style="justify-content:center;">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:Loomisgitarrist@yahoo.de" style="color:#333; text-decoration:none; font-weight:600;">Loomisgitarrist@yahoo.de</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+           <a href="index.html">Home</a> | <a href="Legal/imprint.html">Legal Notice</a> | <a href="Legal/privacy.html">Privacy Policy</a> | <a href="Legal/terms.html">Terms</a> | <a href="Legal/cookies.html">Cookies</a> | <a href="contact.html">Contact</a>
+      </div>
+        <p>Call us: <a href="tel:+491786877798" style="color:#cccccc; text-decoration:none;">+491786877798</a></p>
+        <p>&copy; 2025 AI Avatar Questionnaire. All rights reserved.</p>
+    </footer>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+        });
+    }
+    </script>
+</body>
+<script></script>
+</html>
+
+
