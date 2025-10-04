@@ -83,7 +83,7 @@ min-width: 100%;
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(45deg, #4CAF50, #45a049);
+  background: linear-gradient(45deg, #81429e, #701d87);
   color: white;
   padding: 15px 40px;
   border: none;
@@ -92,12 +92,12 @@ min-width: 100%;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 4px 20px rgb(203, 79, 238, 0.3);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 6px 25px rgb(138, 32, 177, 0.4);
 }
 
 .cta-button.large {
@@ -183,12 +183,12 @@ min-width: 100%;
 .application-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  border-color: #4CAF50;
+  border-color: #7b1a9e;
 }
 
 .card-icon {
   font-size: 2.5rem;
-  color: #4CAF50;
+  color: #8d2e99;
   align-self: flex-start;
 }
 
@@ -202,7 +202,7 @@ min-width: 100%;
 }
 
 .application-badge {
-  background: linear-gradient(45deg, #4CAF50, #45a049);
+  background: linear-gradient(45deg, #722d8b, #8f13a0);
   color: white;
 }
 
@@ -237,7 +237,7 @@ min-width: 100%;
 }
 
 .feature i {
-  color: #4CAF50;
+  color: #8d2e99;
   margin-right: 10px;
   width: 20px;
 }
@@ -247,7 +247,7 @@ min-width: 100%;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 20px;
-  border-left: 4px solid #4CAF50;
+  border-left: 4px solid #8d2e99;
 }
 
 .card-summary p {
@@ -279,7 +279,7 @@ min-width: 100%;
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   margin-right: 8px;
-  color: #4CAF50;
+  color: #8d2e99;
 }
 
 .details-block[open] summary::before {
@@ -315,7 +315,7 @@ min-width: 100%;
 
 .app-button {
   display: inline-block;
-  background: linear-gradient(45deg, #4CAF50, #45a049);
+  background: linear-gradient(45deg, #8d2e99, #8b2ca5);
   color: white;
   padding: 12px 30px;
   border: none;
@@ -330,7 +330,7 @@ min-width: 100%;
 
 .app-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 5px 15px rgb(123, 17, 172, 0.3);
 }
 
 .why-choose {
